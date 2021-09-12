@@ -9,3 +9,5 @@ Atlikti darbai:
 * sukurtas duomenų apdorojimas skaičiuojant vidurkį
 * skaičiuojamas galutinis balas 
 * išvedami rezultatai ekrane (dviejais skaičiais po kablelio)
+
+* [Antra dalis]()
