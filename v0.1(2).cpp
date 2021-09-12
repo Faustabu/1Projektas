@@ -20,7 +20,8 @@ struct studentas
 	string vardas, pavarde;
 	float nd[10]{};
 	float egz;
-	float gal;
+	float galvid;
+	float galmed;
 };
 
 void pildymas(studentas& kint);
@@ -28,21 +29,21 @@ void spausdinimas(studentas& k);
 
 int main()
 {
-	studentas st1;
+	studentas st1{};
 	//studentas st2{ "Vardenis2", "Pavardenis2",5,8,9,9,7,6,5,4,10,0,8,0 };
 
 	pildymas(st1);
 	spausdinimas(st1);
 	/*studentas stud[10];
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 2; i++)
 	{
 		pildymas(stud[i]);
 	};
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 2; i++)
 	{
 		skaiciavimai(stud[i]);
 	}
-	for (int i = 0; i < 1; i++) {
+	for (int i = 0; i < 2; i++) {
 		spausdinimas(stud[i]);
 	};*/
 	return 0;
@@ -84,8 +85,8 @@ void pildymas(studentas& kint) {
 
 	cout << "m=" << mediana << endl;
 	vidurkis = suma / n;
-	//kint.gal = vidurkis * 0.4 + kint.egz * 0.6;
-	kint.gal = mediana * 0.4 + kint.egz * 0.6;
+	kint.galvid = vidurkis * 0.4 + kint.egz * 0.6;
+	kint.galmed = mediana * 0.4 + kint.egz * 0.6;
 
 
 
@@ -104,8 +105,8 @@ void spausdinimas(studentas& k) {
 	cout << " " << endl;
 
 	cout << "egzamino rez: " << fixed << setprecision(2) << k.egz << endl;
-	//cout << "galutinis rez(vid): " << fixed << setprecision(2)<< k.gal<<endl;
-	cout << "galutinis rez(med):  " << fixed << setprecision(2) << k.gal << endl;
+	cout << "galutinis rez(vid): " << fixed << setprecision(2)<< k.galvid<<endl;
+	cout << "galutinis rez(med):  " << fixed << setprecision(2) << k.galmed << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
