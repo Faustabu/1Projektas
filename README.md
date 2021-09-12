@@ -14,3 +14,4 @@ Atlikti darbai:
 * surūšiuoti pažymiai didėjimo tvarka (swap pagalba)
 * ieškoma mediana
 * apskaičuotas galutinis rezultatas su mediana
+* iįvedami galutiniai rezultatai tiek su mediana tiek su vidurkiu
