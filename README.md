@@ -1,5 +1,5 @@
 # 1 Projektas
-v0.1 failai
+# v0.1 failai
 Atlikti darbai:
 * sukurta struktūra
 * sukurtas struktūros "studentai" masyvo įvedimas
