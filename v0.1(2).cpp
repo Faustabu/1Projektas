@@ -29,23 +29,15 @@ void spausdinimas(studentas& k);
 
 int main()
 {
-	studentas st1{};
+	//studentas st1{};
 	//studentas st2{ "Vardenis2", "Pavardenis2",5,8,9,9,7,6,5,4,10,0,8,0 };
-
-	pildymas(st1);
-	spausdinimas(st1);
-	/*studentas stud[10];
+	
+	studentas stud[10];
 	for (int i = 0; i < 2; i++)
 	{
 		pildymas(stud[i]);
-	};
-	for (int i = 0; i < 2; i++)
-	{
-		skaiciavimai(stud[i]);
-	}
-	for (int i = 0; i < 2; i++) {
 		spausdinimas(stud[i]);
-	};*/
+	};
 	return 0;
 }
 
