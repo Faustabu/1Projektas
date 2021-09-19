@@ -15,4 +15,8 @@ Atlikti darbai:
 * ieškoma mediana
 * apskaičuotas galutinis rezultatas su mediana
 * išvedami galutiniai rezultatai tiek su mediana tiek su vidurkiu
-[Trečia dalis]()
+
+[Trečia dalis](https://github.com/Faustabu/1Projektas/blob/%231-projekto-dalis/v01nezinomas_kiekis_nd.cpp)
+* n priskiriamas kaip laikinas kintamasis
+* su while(cin>>n) pagalba padaryta, kad galėtume įvesti nežinomą kiekį kintamųjų
+
