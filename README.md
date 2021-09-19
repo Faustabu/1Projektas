@@ -21,4 +21,9 @@ Atlikti darbai:
 * su while(cin>>n) pagalba padaryta, kad galėtume įvesti nežinomą kiekį kintamųjų
 * pakeistas studento masyvas į vektorių
 
+[Ketvirta dalis]()
+* ivedamas namų darbų kiekis
+* sugeneruojami atsitiktiniai pažymiai
+* sugeneruojamas atsitiktinis egzamino rezultatas
+
 
