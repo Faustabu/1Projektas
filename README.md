@@ -15,3 +15,4 @@ Atlikti darbai:
 * ieškoma mediana
 * apskaičuotas galutinis rezultatas su mediana
 * išvedami galutiniai rezultatai tiek su mediana tiek su vidurkiu
+[Trečia dalis]()
