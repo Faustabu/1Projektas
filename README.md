@@ -21,8 +21,8 @@ Atlikti darbai:
 * su while(cin>>n) pagalba padaryta, kad galėtume įvesti nežinomą kiekį kintamųjų
 * pakeistas studento masyvas į vektorių
 
-[Ketvirta dalis]()
-* ivedamas namų darbų kiekis
+[Ketvirta dalis](https://github.com/Faustabu/1Projektas/blob/%231-projekto-dalis/randomas.cpp)
+* įvedamas namų darbų kiekis
 * sugeneruojami atsitiktiniai pažymiai
 * sugeneruojamas atsitiktinis egzamino rezultatas
 
