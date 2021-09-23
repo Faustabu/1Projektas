@@ -54,7 +54,7 @@ void skaitymas(vector<studentas>& Eil, int* pazymiu_sk)
     int temp;
     std::ifstream fileRead;
     string buff;
-    fileRead.open("studentai10000.txt");
+    fileRead.open("kursiokai.txt");
     if (fileRead.is_open())
     {
         getline(fileRead >> std::ws, buff);
@@ -95,6 +95,10 @@ void spausdinimas(vector<studentas> Eil, int pazymiu_sk)
         << "--------------------------------------------------------------------------\n";
     for (int i = 0; i < Eil.size(); i++)
     {
+         for (int j = i + 1; j < Eil.size(); j++) {
+            if (Eil[i].vardas > Eil[j].vardas) {
+                std::swap(Eil[i].vardas, Eil[j].vardas);}
+         }
         output << setw(20) << std::left << Eil[i].vardas
             << setw(20) << std::left << Eil[i].pavarde
             << setw(18) << std::left << Eil[i].galvid << endl;
