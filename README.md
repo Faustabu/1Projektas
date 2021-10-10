@@ -1,6 +1,6 @@
 # v0.3
 Headers:
-[struct.h](https://github.com/Faustabu/1Projektas/blob/%231-projekto-dalis/v01.cpp)
+[struct.h](https://github.com/Faustabu/1Projektas/blob/v.03/struct.h)
 [inc.h]()
 
 CPP files:
