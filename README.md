@@ -7,8 +7,9 @@ Headers:
 
 CPP files:
 
-[main.cpp]()
-[skaitymas.cpp]()
+*[main.cpp]()
+
+*[skaitymas.cpp](https://github.com/Faustabu/1Projektas/blob/v.03/skaitymas.cpp)
 
 Atlikti darbai:
 
