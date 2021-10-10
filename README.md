@@ -7,7 +7,7 @@ Headers:
 
 CPP files:
 
-*[main.cpp]()
+*[main.cpp](https://github.com/Faustabu/1Projektas/blob/v.03/main.cpp)
 
 *[skaitymas.cpp](https://github.com/Faustabu/1Projektas/blob/v.03/skaitymas.cpp)
 
