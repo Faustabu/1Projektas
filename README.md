@@ -15,4 +15,5 @@ Atlikti darbai:
 
 * sukurti header ("struct.h" ir "inc.h") failai
 * visas buvęs v0.2 failas išskaidytas į du header failus ir du *cpp* failus
+* panaudotas išimčių valdymas (kai įvestas pažymys yra 0 ir mažiau)
 
