@@ -9,6 +9,6 @@ CPP files:
 
 Atlikti darbai:
 
-* sukurti header ("struct.h" ir "inc.h) failai
+* sukurti header ("struct.h" ir "inc.h") failai
 * visas buvęs v0.2 failas išskaidytas į du header failus ir du *cpp* failus
 
