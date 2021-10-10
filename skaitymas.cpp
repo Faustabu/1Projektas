@@ -40,8 +40,20 @@ void skaitymas(vector<studentas>& Eil, int* pazymiu_sk)
             for (int i = 0; i < *pazymiu_sk; i++)
           
             {
-                fileRead >> temp;
+                try{
+              fileRead >> temp;
+              
+              if(temp <=0)
+              {
+                throw temp;
+              }
                 Eil.at(student_counter).nd.push_back(temp);
+                
+              }
+              catch(float ex){
+                cout<<"EXCEPTION: įvestas neteisingas pažymys: "<<ex<<endl;
+              }              
+                
                 s+=temp;
                 
             }
