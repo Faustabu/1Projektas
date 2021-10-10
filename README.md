@@ -1,2 +1,2 @@
-# 1Projektas
-objektinis programavimas
+# v0.3
+
