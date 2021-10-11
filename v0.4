@@ -1,0 +1,86 @@
+#include <iostream>
+#include <iomanip>
+#include<string>
+#include<cmath>
+#include<fstream>
+#include<vector>
+#include<algorithm>
+#include<numeric>
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>  
+
+using std::cin;
+using std::cout;
+using std::vector;
+using std::endl;
+using std::string;
+
+struct studentas{
+  string vardas, pavarde;
+  vector<float> paz = {0};
+  float egz;
+  float gal;
+  };
+  
+
+  int random_generatorius()
+  {
+   // srand(time(NULL));
+    int r = rand() % 10 +1;
+    cout<<"r="<<r<<endl;
+    return r;
+  }
+
+vector<int> auto_skaiciai (int pazymiu_kiekis )
+{
+vector<int> sk;
+for(int i = 0; i<pazymiu_kiekis; i++){
+  sk.push_back(random_generatorius());
+}
+return sk;
+}
+
+float galutinis_balas(vector<int>skaiciai)
+{
+  studentas eile;
+  eile.gal = 0.4 * std::accumulate(skaiciai.begin(), skaiciai.end(), 0)/skaiciai.size() + 0.6 * random_generatorius();
+  return eile.gal;
+}
+
+
+int generavimas(vector<int> nd_skc){
+  int kiek;
+  cout<<"iveskite skaiciu: "; cin>>kiek;
+  string pavadinimas = "studentai_" + std::to_string(kiek) + ".txt";
+  std::ofstream isvedimas(pavadinimas);
+  vector<int> skaiciai;
+  studentas eile;
+  isvedimas<<std::setw(20)<<std::left<<"Vardas"<<std::setw(20)<<std::left<<"Pavarde"<<std::setw(20)<<std::left<<"Gal.(vid)"<<endl;
+
+  for (int i = 1; i <= kiek; i++)
+	{
+   int j = i;
+		skaiciai = auto_skaiciai(5);
+		isvedimas << std::setw(20) << "Vardas" + std::to_string(j) <<
+			std::setw(20) << "Pavarde" + std::to_string(j) <<
+			std::setw(18) << galutinis_balas(skaiciai) << std::endl;;
+		skaiciai.clear();
+
+	}
+return kiek;
+   
+}
+
+int main()
+  {
+    int paz;
+    cout<<"iveskite pazymiu kieki: ";
+    cin>>paz;
+    auto_skaiciai(paz);
+vector<int> nd_skaiciai;
+
+	int kiek = generavimas(nd_skaiciai);
+	vector<studentas> duom;
+
+  }
