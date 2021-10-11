@@ -28,7 +28,6 @@ struct studentas{
   {
    // srand(time(NULL));
     int r = rand() % 10 +1;
-    cout<<"r="<<r<<endl;
     return r;
   }
 
@@ -51,7 +50,7 @@ float galutinis_balas(vector<int>skaiciai)
 
 int generavimas(vector<int> nd_skc){
   int kiek;
-  cout<<"iveskite skaiciu: "; cin>>kiek;
+  cout<<"iveskite studentu skaiciu: "; cin>>kiek;
   string pavadinimas = "studentai_" + std::to_string(kiek) + ".txt";
   std::ofstream isvedimas(pavadinimas);
   vector<int> skaiciai;
@@ -60,17 +59,27 @@ int generavimas(vector<int> nd_skc){
 
   for (int i = 1; i <= kiek; i++)
 	{
-   int j = i;
 		skaiciai = auto_skaiciai(5);
-		isvedimas << std::setw(20) << "Vardas" + std::to_string(j) <<
-			std::setw(20) << "Pavarde" + std::to_string(j) <<
-			std::setw(18) << galutinis_balas(skaiciai) << std::endl;;
+		isvedimas << std::setw(20) << "Vardas" + std::to_string(i) <<
+			std::setw(20) << "Pavarde" + std::to_string(i) <<
+			std::setw(18) << galutinis_balas(skaiciai) << std::endl;
 		skaiciai.clear();
 
 	}
 return kiek;
-   
 }
+
+
+void failo_skaitymas(vector<studentas> & kint, int kiek){
+int stud = 0;
+std::ifstream skaitymas;
+string pavadinimas = "studentai_" + std::to_string(kiek) + ".txt";
+skaitymas.open(pavadinimas);
+
+
+
+}  
+
 
 int main()
   {
@@ -82,5 +91,13 @@ vector<int> nd_skaiciai;
 
 	int kiek = generavimas(nd_skaiciai);
 	vector<studentas> duom;
+  failo_skaitymas(duom, kiek);
+  vector<studentas> galvociai;
+  vector<studentas> nuskriaustukai;
+  int galvoc = 0;
+  int nuskr = 0;
+  for (int i = 0; i<kiek; i++){
+    if()
+  }
 
   }
