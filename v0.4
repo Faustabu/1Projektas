@@ -76,6 +76,16 @@ std::ifstream skaitymas;
 string pavadinimas = "studentai_" + std::to_string(kiek) + ".txt";
 skaitymas.open(pavadinimas);
 
+while(stud < kiek)
+{
+  kint.resize(kint.size() + 1);
+
+  skaitymas>>kint.at(stud).vardas;
+  skaitymas>>kint.at(stud).pavarde;
+  skaitymas>>kint.at(stud).gal;
+stud +=1;
+}
+
 
 
 }  
@@ -97,7 +107,22 @@ vector<int> nd_skaiciai;
   int galvoc = 0;
   int nuskr = 0;
   for (int i = 0; i<kiek; i++){
-    if()
-  }
+    if(duom.at(i).gal < 5.00)
+    {
+nuskriaustukai.push_back(duom.at(i));
+nuskr +=1;
+    }
+    else 
+    {galvociai.push_back(duom.at(i));
+    galvoc +=1;}
 
+string pavad1, pavad2;
+pavad1 = "nuskriaustukai_" + std::to_string(kiek) + ".txt";
+std::ofstream nuskr_failas(pavad1);
+
+pavad2 = "galvociai_" + std::to_string(kiek) + ".txt";
+std::ofstream galvoc_failas(pavad2);
+
+
+  }
   }
