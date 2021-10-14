@@ -1,4 +1,5 @@
 # v0.4
+*[v0.4](https://github.com/Faustabu/1Projektas/blob/v0.4/v0.4)
 Atlikti darbai:
 * sugeneruoti atsitiktiniai(random) pažymiai
 * suskaičiuoti jų galutiniai pažymių vidurkiai
