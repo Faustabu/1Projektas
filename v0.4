@@ -73,10 +73,13 @@ return kiek;
 void failo_skaitymas(vector<studentas> & kint, int kiek){
 int stud = 0;
 std::ifstream skaitymas;
+string buff;
 string pavadinimas = "studentai_" + std::to_string(kiek) + ".txt";
 skaitymas.open(pavadinimas);
 
-while(stud < kiek)
+if(skaitymas.is_open()){
+  getline (skaitymas>> std::ws, buff);
+  while(stud < kiek)
 {
   kint.resize(kint.size() + 1);
 
@@ -85,6 +88,9 @@ while(stud < kiek)
   skaitymas>>kint.at(stud).gal;
 stud +=1;
 }
+
+}
+
 
 
 
@@ -96,33 +102,43 @@ int main()
     int paz;
     cout<<"iveskite pazymiu kieki: ";
     cin>>paz;
+    float balas = 5.00;
     auto_skaiciai(paz);
-vector<int> nd_skaiciai;
+vector<int> skaiciai;
 
-	int kiek = generavimas(nd_skaiciai);
+	int kiek = generavimas(skaiciai);
+  
 	vector<studentas> duom;
   failo_skaitymas(duom, kiek);
   vector<studentas> galvociai;
   vector<studentas> nuskriaustukai;
   int galvoc = 0;
   int nuskr = 0;
-  for (int i = 0; i<kiek; i++){
-    if(duom.at(i).gal < 5.00)
-    {
-nuskriaustukai.push_back(duom.at(i));
-nuskr +=1;
-    }
-    else 
-    {galvociai.push_back(duom.at(i));
-    galvoc +=1;}
+  string pavad1, pavad2;
 
-string pavad1, pavad2;
 pavad1 = "nuskriaustukai_" + std::to_string(kiek) + ".txt";
 std::ofstream nuskr_failas(pavad1);
 
 pavad2 = "galvociai_" + std::to_string(kiek) + ".txt";
 std::ofstream galvoc_failas(pavad2);
 
+  for (int i = 0; i<kiek; i++){
+    if(duom.at(i).gal < balas)
+    {
+      nuskriaustukai.push_back(duom.at(i));
+      
+nuskr_failas <<duom.at(i).vardas<<  std::setw(20) << duom.at(i).pavarde << std::setw (20) << duom.at(i).gal<< endl;
 
-  }
-  }
+nuskr +=1;
+    }
+    }
+  
+  for (int j =0; j<kiek; j++) 
+    { 
+      if(duom.at(j).gal >= balas){
+      galvociai.push_back(duom.at(j));
+      galvoc_failas <<duom.at(j).vardas<<  std::setw(20) << duom.at(j).pavarde << std::setw (20) << duom.at(j).gal<< endl;
+    galvoc +=1;}
+    }
+    
+}
