@@ -8,7 +8,8 @@
 #include<numeric>
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h>     /* srand, rand */
-#include <time.h>  
+#include <time.h> 
+#include<chrono> 
 
 using std::cin;
 using std::cout;
@@ -51,6 +52,9 @@ float galutinis_balas(vector<int>skaiciai)
 int generavimas(vector<int> nd_skc){
   int kiek;
   cout<<"iveskite studentu skaiciu: "; cin>>kiek;
+
+  auto start = std::chrono::high_resolution_clock::now();
+
   string pavadinimas = "studentai_" + std::to_string(kiek) + ".txt";
   std::ofstream isvedimas(pavadinimas);
   vector<int> skaiciai;
@@ -66,6 +70,11 @@ int generavimas(vector<int> nd_skc){
 		skaiciai.clear();
 
 	}
+
+  auto end = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double> diff = end - start;
+  cout<<"studentų failo sukūrimas užtruko: "<<diff.count()<<endl;
+
 return kiek;
 }
 
@@ -75,6 +84,8 @@ int stud = 0;
 std::ifstream skaitymas;
 string buff;
 string pavadinimas = "studentai_" + std::to_string(kiek) + ".txt";
+
+auto start = std::chrono::high_resolution_clock::now();
 skaitymas.open(pavadinimas);
 
 if(skaitymas.is_open()){
@@ -86,14 +97,11 @@ if(skaitymas.is_open()){
   skaitymas>>kint.at(stud).vardas;
   skaitymas>>kint.at(stud).pavarde;
   skaitymas>>kint.at(stud).gal;
-stud +=1;
+stud +=1;}
 }
-
-}
-
-
-
-
+auto end = std::chrono::high_resolution_clock::now();
+std::chrono::duration<double> diff = end - start;
+cout<<"nuskaitymas užtruko: "<<diff.count()<<endl;
 }  
 
 
@@ -107,7 +115,7 @@ int main()
 vector<int> skaiciai;
 
 	int kiek = generavimas(skaiciai);
-  
+  cout<<kiek<<endl;
 	vector<studentas> duom;
   failo_skaitymas(duom, kiek);
   vector<studentas> galvociai;
@@ -116,29 +124,60 @@ vector<int> skaiciai;
   int nuskr = 0;
   string pavad1, pavad2;
 
-pavad1 = "nuskriaustukai_" + std::to_string(kiek) + ".txt";
-std::ofstream nuskr_failas(pavad1);
+auto start1 = std::chrono::high_resolution_clock::now();
 
-pavad2 = "galvociai_" + std::to_string(kiek) + ".txt";
-std::ofstream galvoc_failas(pavad2);
 
   for (int i = 0; i<kiek; i++){
     if(duom.at(i).gal < balas)
     {
       nuskriaustukai.push_back(duom.at(i));
-      
-nuskr_failas <<duom.at(i).vardas<<  std::setw(20) << duom.at(i).pavarde << std::setw (20) << duom.at(i).gal<< endl;
-
-nuskr +=1;
+      nuskr +=1;
+      }
     }
-    }
-  
+    
   for (int j =0; j<kiek; j++) 
     { 
       if(duom.at(j).gal >= balas){
       galvociai.push_back(duom.at(j));
-      galvoc_failas <<duom.at(j).vardas<<  std::setw(20) << duom.at(j).pavarde << std::setw (20) << duom.at(j).gal<< endl;
     galvoc +=1;}
     }
+
+  auto end1 = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double> diff1 = end1 - start1;
+cout<<"Studentų rūšiavimas į dvi grupes užtruko:  "<<diff1.count()<<endl;
     
-}
+auto start2 = std::chrono::high_resolution_clock::now();
+
+
+pavad1 = "nuskriaustukai_" + std::to_string(kiek) + ".txt";
+std::ofstream nuskr_failas(pavad1);
+
+for (int l = 0; l<kiek; l++)
+    {
+      if(duom.at(l).gal < balas){
+
+      nuskr_failas <<duom.at(l).vardas<<  std::setw(20) << duom.at(l).pavarde << std::setw (20) << duom.at(l).gal<< endl;
+    }}
+
+auto end2 = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double> diff2 = end2 - start2;
+cout<<"Surūšiuotų studentų išvedimas į failą - nuskriaustukai:  "<<diff2.count()<<endl;
+
+
+
+auto start3 = std::chrono::high_resolution_clock::now();
+
+pavad2 = "galvociai_" + std::to_string(kiek) + ".txt";
+std::ofstream galvoc_failas(pavad2);
+
+for (int k = 0; k<kiek; k++)
+    {
+      if(duom.at(k).gal >= balas){
+
+      galvoc_failas <<duom.at(k).vardas<<  std::setw(20) << duom.at(k).pavarde << std::setw (20) << duom.at(k).gal<< endl;
+    }}
+auto end3 = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double> diff3 = end3 - start3;
+cout<<"Surūšiuotų studentų išvedimas į failą - galvočiai:  "<<diff3.count()<<endl;
+  }
+  
