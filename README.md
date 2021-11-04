@@ -1,7 +1,12 @@
 # v05
 
 * Pakeisti vektoriai į listus
-* 
+* su vektoriais nuskaitymas užtruko : 1000.txt - 0.0218045s,  10000.txt - 0.0492553s,  100000.txt - 0.312491s,  1000000.txt - 2.55496s, 10000000.txt -;
+* su listais nuskaitymas užtruko : 1000.txt - 0,005941s,   10000.txt - 0.0408882s,   100000.txt - 0.307368s,   1000000.txt - 1.77551s,  10000000.txt - 17.5141s;
+* su vektoriais rūšiavimas į dvi grupes užtruko: 1000.txt - 0.0005158s, 10000.txt - 0.0030306s, 100000.txt - 0.0312491s, 1000000.txt -0.278758s, 10000000.txt - neužteko atminties
+* su listais rūšiavimas į dvi grupes užtruko: 1000.txt - 1.01765s, 10000.txt - 75.559s,  100000.txt - 6994.61s, 1000000.txt ir 10000000.txt - neužteko atminties.  
+
+
 ![image3](https://user-images.githubusercontent.com/90148059/140397998-c1293218-416e-46e2-845b-901c84384b79.jpeg)
 ![image2 (1)](https://user-images.githubusercontent.com/90148059/140398007-af258643-1e27-492f-b87d-a75449a91eeb.jpeg)
 ![image5](https://user-images.githubusercontent.com/90148059/140398012-d86c8989-d374-4db2-895c-bf67842c453f.jpeg)
