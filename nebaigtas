@@ -1,4 +1,4 @@
-nclude <iostream>
+#include <iostream>
 #include <iomanip>
 #include<string>
 #include<cmath>
@@ -22,8 +22,8 @@ using std::list;
 struct studentas {
     string vardas, pavarde;
     vector<float> paz = { 0 };
-    float egz;
-    float gal;
+    int egz;
+    float gal = 0;
 };
 
 studentas get(list<studentas> lst, int d) {
@@ -78,9 +78,9 @@ int generavimas(vector<int> nd_skc) {
 
     }
 
-   // auto end = std::chrono::high_resolution_clock::now();
-    //std::chrono::duration<double> diff = end - start;
-    cout << "studentų failo sukūrimas užtruko: " << diff.count() << endl;
+    // auto end = std::chrono::high_resolution_clock::now();
+     //std::chrono::duration<double> diff = end - start;
+     //cout << "studentų failo sukūrimas užtruko: " << diff.count() << endl;
 
     return kiek;
 }
@@ -92,7 +92,7 @@ void failo_skaitymas(list<studentas>& kint, int kiek) {
     string buff;
     string pavadinimas = "studentai_" + std::to_string(kiek) + ".txt";
 
-    
+
     skaitymas.open(pavadinimas);
 
     if (skaitymas.is_open()) {
@@ -102,16 +102,18 @@ void failo_skaitymas(list<studentas>& kint, int kiek) {
         while (stud < kiek)
         {
             //kint.resize(kint.size() + 1);
-            studentas student
+            studentas student;
             skaitymas >> student.vardas;
             skaitymas >> student.pavarde;
             skaitymas >> student.gal;
+            kint.push_back(student);
             stud += 1;
         }
+        auto end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> diff = end - start;
+        cout << "nuskaitymas uztruko: " << diff.count() << endl;
     }
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> diff = end - start;
-    cout << "nuskaitymas užtruko: " << diff.count() << endl;
+
 }
 
 
@@ -135,7 +137,7 @@ int main()
     string pavad1, pavad2;
 
     auto start1 = std::chrono::high_resolution_clock::now();
-    
+
 
     for (int i = 0; i < kiek; i++) {
         if (get(duom, i).gal < balas)
@@ -155,7 +157,7 @@ int main()
 
     auto end1 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff1 = end1 - start1;
-    cout << "Studentų rūšiavimas į dvi grupes užtruko:  " << diff1.count() << endl;
+    cout << "Studentu rusiavimas i dvi grupes uztruko:  " << diff1.count() << endl;
 
     auto start2 = std::chrono::high_resolution_clock::now();
 
@@ -167,13 +169,13 @@ int main()
     {
         if (get(duom, l).gal < balas) {
 
-            nuskr_failas << get(duom, i).vardas << std::setw(20) << duom.at(l).pavarde << std::setw(20) << duom.at(l).gal << endl;
+            nuskr_failas << get(duom, l).vardas << std::setw(20) << get(duom, l).pavarde << std::setw(20) << get(duom, l).gal << endl;
         }
     }
 
     auto end2 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff2 = end2 - start2;
-    cout << "Surūšiuotų studentų išvedimas į failą - nuskriaustukai:  " << diff2.count() << endl;
+    //cout << "Surūšiuotų studentų išvedimas į failą - nuskriaustukai:  " << diff2.count() << endl;
 
 
 
@@ -184,12 +186,12 @@ int main()
 
     for (int k = 0; k < kiek; k++)
     {
-        if (duom.at(k).gal >= balas) {
+        if (get(duom, k).gal >= balas) {
 
-            galvoc_failas << duom.at(k).vardas << std::setw(20) << duom.at(k).pavarde << std::setw(20) << duom.at(k).gal << endl;
+            galvoc_failas << get(duom, k).vardas << std::setw(20) << get(duom, k).pavarde << std::setw(20) << get(duom, k).gal << endl;
         }
     }
     auto end3 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff3 = end3 - start3;
-    cout << "Surūšiuotų studentų išvedimas į failą - galvočiai:  " << diff3.count() << endl;
+    //cout << "Surūšiuotų studentų išvedimas į failą - galvočiai:  " << diff3.count() << endl;
 }
