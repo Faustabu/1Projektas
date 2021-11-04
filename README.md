@@ -1,2 +1,3 @@
-# 1Projektas
-objektinis programavimas
+# v05
+
+*Pakeisti vektoriai į listus
