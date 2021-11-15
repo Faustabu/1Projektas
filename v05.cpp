@@ -139,21 +139,14 @@ int main()
     auto start1 = std::chrono::high_resolution_clock::now();
 
 
-    for (int i = 0; i < kiek; i++) {
-        if (get(duom, i).gal < balas)
-        {
-            nuskriaustukai.push_back(get(duom, i));
-            nuskr += 1;
+   for (const auto& laik : duom) {
+        if (laik.gal < balas) {
+            nuskriaustukai.push_back(laik);
         }
-    }
-
-    for (int j = 0; j < kiek; j++)
-    {
-        if (get(duom, j).gal >= balas) {
-            galvociai.push_back(get(duom, j));
-            galvoc += 1;
+        else {
+            galvociai.push_back(laik);
         }
-    }
+   }
 
     auto end1 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff1 = end1 - start1;
@@ -172,6 +165,7 @@ int main()
             nuskr_failas << get(duom, l).vardas << std::setw(20) << get(duom, l).pavarde << std::setw(20) << get(duom, l).gal << endl;
         }
     }
+    
 
     auto end2 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff2 = end2 - start2;
@@ -191,6 +185,10 @@ int main()
             galvoc_failas << get(duom, k).vardas << std::setw(20) << get(duom, k).pavarde << std::setw(20) << get(duom, k).gal << endl;
         }
     }
+    duom.clear();
+    galvociai.clear();
+    nuskriaustukai.clear();
+    
     auto end3 = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff3 = end3 - start3;
     //cout << "Surūšiuotų studentų išvedimas į failą - galvočiai:  " << diff3.count() << endl;
