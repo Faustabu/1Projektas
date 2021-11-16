@@ -1,30 +1,4 @@
-#include <iostream>
-#include <iomanip>
-#include<string>
-#include<cmath>
-#include<fstream>
-#include<vector>
-#include<algorithm>
-#include<numeric>
-#include <stdio.h>      /* printf, scanf, puts, NULL */
-#include <stdlib.h>     /* srand, rand */
-#include <time.h> 
-#include<chrono> 
-#include<list>
-
-using std::cin;
-using std::cout;
-using std::vector;
-using std::endl;
-using std::string;
-using std::list;
-
-struct studentas {
-    string vardas, pavarde;
-    vector<float> paz = { 0 };
-    int egz;
-    float gal = 0;
-};
+#include "studentas.h"
 
 studentas get(list<studentas> lst, int d) {
     list<studentas>::iterator itr = lst.begin();
