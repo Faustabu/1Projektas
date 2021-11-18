@@ -1,4 +1,6 @@
 #pragma once
+#ifndef Funkcijos
+#define Funkcijos
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -13,17 +15,24 @@
 #include<chrono> 
 #include <random>
 #include<list>
+#include<deque>
 
-using std::cin;
-using std::cout;
-using std::vector;
-using std::endl;
 using std::string;
+using std::vector;
 using std::list;
+using std::deque;
 
 struct studentas {
     string vardas, pavarde;
     vector<float> paz = {};
     //int egz;
-    double gal = 0;
+    float gal = 0;
 };
+
+studentas get(list<studentas> lst, int d);
+int random_generatorius();
+vector<int> auto_skaiciai(int pazymiu_kiekis);
+float galutinis_balas(vector<int>skaiciai);
+int generavimas(vector<int> nd_skc);
+void failo_skaitymas(list<studentas>& kint, int kiek);
+#endif
