@@ -11,4 +11,11 @@ Atlikti darbai:
 * išvedami duomenys į du atskirus tekstinius failus ("galvočiai" ir "nuskriaustukai")
 * atliktos programos spartos analizės (failo sūkūrimo, duomenų nuskaitymo, studentų rūšiavimo, surūšiuotų duomenų išvedimo į atskirus failus)
 
-|like|yra|2|
+|studentu kiekis| 1 000 | 10 000 | 100 000 | 1 000 000 | 10 000 000|
+| --------- | ------- | ------- | ------- | ---------- | --------- |
+|studentu failo sukurimas| 0.245992 | 1.52356
+|nuskaitymas| 0.042386 | 0.316844 |
+|rusiavimas i dvi grupes| 0.008098 | 0.083107
+|isvedimas i nuskriaustukai| 19.237872 | 
+|isvedimas i galvociai| 14.997921 |
+
