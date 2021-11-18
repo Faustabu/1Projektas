@@ -11,4 +11,4 @@ Atlikti darbai:
 * išvedami duomenys į du atskirus tekstinius failus ("galvočiai" ir "nuskriaustukai")
 * atliktos programos spartos analizės (failo sūkūrimo, duomenų nuskaitymo, studentų rūšiavimo, surūšiuotų duomenų išvedimo į atskirus failus)
 
-|laikai:| 
+|laikai||su vector| 
