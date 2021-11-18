@@ -10,3 +10,5 @@ Atlikti darbai:
 * studentai padalinti į dvi grupes (kurių balas > 5 ir balas <= 5)
 * išvedami duomenys į du atskirus tekstinius failus ("galvočiai" ir "nuskriaustukai")
 * atliktos programos spartos analizės (failo sūkūrimo, duomenų nuskaitymo, studentų rūšiavimo, surūšiuotų duomenų išvedimo į atskirus failus)
+
+|laikai:| 
