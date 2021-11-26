@@ -7,28 +7,29 @@ using std::endl;
 
 int main()
 {
-    int paz;
-    cout << "iveskite pazymiu kieki: ";
-    cin >> paz;
+    int kiek;
+   // cout << "iveskite pazymiu kieki: ";
+    //cin >> paz;
     float balas = 5.00;
-    auto_skaiciai(paz);
+    //auto_skaiciai(paz);
     vector<int> skaiciai;
 
-    int kiek = generavimas(skaiciai);
-    cout << kiek << endl;
-    deque<studentas> duomdeq;
-    deque<studentas> nuskriaustukaideq;
-    deque<studentas> galvociaideq;
+    //int kiek = generavimas(skaiciai);
+    cout << "kiek studentu " << endl; cin >> kiek;
+    
     list <studentas> duom;
     list<studentas> galvociai;
     list<studentas> nuskriaustukai;
     vector<studentas> duomvec;
     vector<studentas> galvociaivec;
     vector<studentas> nuskriaustukaivec;
+    deque<studentas> duomdeq;
+    deque<studentas> nuskriaustukaideq;
+    deque<studentas> galvociaideq;
 
     int galvoc = 0;
     int nuskr = 0;
-    string pavad1, pavad2; 
+    string pavad1, pavad2;
     auto start = std::chrono::high_resolution_clock::now();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end - start;
@@ -51,7 +52,7 @@ int main()
     diff = end - start;
     cout << "Studentu rusiavimas i dvi grupes su list uztruko:  " << diff.count() << endl;
 
-    start = std::chrono::high_resolution_clock::now();
+   /* start = std::chrono::high_resolution_clock::now();
     pavad1 = "nuskriaustukai_" + std::to_string(kiek) + ".txt";
     std::ofstream nuskr_failas(pavad1);
 
@@ -89,6 +90,7 @@ int main()
     end = std::chrono::high_resolution_clock::now();
     diff = end - start;
     //cout << "Surūšiuotų studentų išvedimas į failą - galvočiai:  " << diff.count() << endl;
+    */
     //---------------------------------------VECTOR-----------------------------------------
     failo_skaitymas(duomvec, kiek);
 
@@ -106,7 +108,7 @@ int main()
     galvociaivec.clear();
     nuskriaustukaivec.clear();
     duomvec.shrink_to_fit();
-    galvociaivec.shrink_to_fit(); 
+    galvociaivec.shrink_to_fit();
     nuskriaustukaivec.shrink_to_fit();
 
     end = std::chrono::high_resolution_clock::now();
@@ -140,14 +142,14 @@ studentas get(list<studentas> lst, int d) {
     list<studentas>::iterator itr = lst.begin();
     for (int i = 0; i < d; i++) ++itr;
     return *itr;
-}
+} 
 
-int random_generatorius()
-{       
-     using hrClock = std::chrono::high_resolution_clock;
-     std::mt19937 mt(static_cast<long unsigned int>(hrClock::now().time_since_epoch().count()));
-     std::uniform_int_distribution<int> dist(0, 10);
-     return dist(mt);
+/*int random_generatorius()
+{
+    using hrClock = std::chrono::high_resolution_clock;
+    std::mt19937 mt(static_cast<long unsigned int>(hrClock::now().time_since_epoch().count()));
+    std::uniform_int_distribution<int> dist(0, 10);
+    return dist(mt);
 }
 
 vector<int> auto_skaiciai(int pazymiu_kiekis)
@@ -194,7 +196,7 @@ int generavimas(vector<int> nd_skc) {
      //cout << "studentų failo sukūrimas užtruko: " << diff.count() << endl;
 
     return kiek;
-}
+}*/
 
 
 void failo_skaitymas(list<studentas>& kint, int kiek) {
@@ -225,7 +227,7 @@ void failo_skaitymas(list<studentas>& kint, int kiek) {
         cout << "nuskaitymas su listu uztruko: " << diff.count() << endl;
     }
 
-} 
+}
 void failo_skaitymas(vector<studentas>& kint, int kiek) {
     int stud = 0;
     std::ifstream skaitymas;
@@ -253,28 +255,28 @@ void failo_skaitymas(vector<studentas>& kint, int kiek) {
 }
 
 
-void failo_skaitymas(deque<studentas>& kint, int kiek){
-int stud = 0;
-std::ifstream skaitymas;
-string buff;
-string pavadinimas = "studentai_" + std::to_string(kiek) + ".txt";
+void failo_skaitymas(deque<studentas>& kint, int kiek) {
+    int stud = 0;
+    std::ifstream skaitymas;
+    string buff;
+    string pavadinimas = "studentai_" + std::to_string(kiek) + ".txt";
 
-auto start = std::chrono::high_resolution_clock::now();
-skaitymas.open(pavadinimas);
+    auto start = std::chrono::high_resolution_clock::now();
+    skaitymas.open(pavadinimas);
 
-if (skaitymas.is_open()) {
-    getline(skaitymas >> std::ws, buff);
-    while (stud < kiek)
-    {
-        kint.resize(kint.size() + 1);
+    if (skaitymas.is_open()) {
+        getline(skaitymas >> std::ws, buff);
+        while (stud < kiek)
+        {
+            kint.resize(kint.size() + 1);
 
-        skaitymas >> kint.at(stud).vardas;
-        skaitymas >> kint.at(stud).pavarde;
-        skaitymas >> kint.at(stud).gal;
-        stud += 1;
+            skaitymas >> kint.at(stud).vardas;
+            skaitymas >> kint.at(stud).pavarde;
+            skaitymas >> kint.at(stud).gal;
+            stud += 1;
+        }
     }
-}
-auto end = std::chrono::high_resolution_clock::now();
-std::chrono::duration<double> diff = end - start;
-cout << "nuskaitymas su deque uztruko: " << diff.count() << endl;
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = end - start;
+    cout << "nuskaitymas su deque uztruko: " << diff.count() << endl;
 }
