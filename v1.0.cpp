@@ -1,22 +1,23 @@
-#include "studentas.h"
+##include "studentas.h"
 using std::cout;
 using std::cin;
 using std::endl;
 
-
+template<class C>
+void antra_strategija(C& studentai, C& v, double& balas);
 
 int main()
 {
     int kiek;
-   // cout << "iveskite pazymiu kieki: ";
-    //cin >> paz;
+    // cout << "iveskite pazymiu kieki: ";
+     //cin >> paz;
     float balas = 5.00;
     //auto_skaiciai(paz);
     vector<int> skaiciai;
 
     //int kiek = generavimas(skaiciai);
     cout << "kiek studentu " << endl; cin >> kiek;
-    
+
     list <studentas> duom;
     list<studentas> galvociai;
     list<studentas> nuskriaustukai;
@@ -52,46 +53,54 @@ int main()
     diff = end - start;
     cout << "Studentu rusiavimas i dvi grupes su list uztruko:  " << diff.count() << endl;
 
-   /* start = std::chrono::high_resolution_clock::now();
-    pavad1 = "nuskriaustukai_" + std::to_string(kiek) + ".txt";
-    std::ofstream nuskr_failas(pavad1);
-
-    for (int l = 0; l < kiek; l++)
-    {
-        if (get(duom, l).gal < balas) {
-
-            nuskr_failas << get(duom, l).vardas << std::setw(20) << get(duom, l).pavarde << std::setw(20) << get(duom, l).gal << endl;
-        }
-    }
-
-
-    end = std::chrono::high_resolution_clock::now();
-    diff = end - start;
-    //cout << "Surūšiuotų studentų išvedimas į failą - nuskriaustukai:  " << diff.count() << endl;
-
-
-
     start = std::chrono::high_resolution_clock::now();
+     pavad1 = "nuskriaustukai_" + std::to_string(kiek) + ".txt";
+     std::ofstream nuskr_failas(pavad1);
 
-    pavad2 = "galvociai_" + std::to_string(kiek) + ".txt";
-    std::ofstream galvoc_failas(pavad2);
 
-    for (int k = 0; k < kiek; k++)
-    {
-        if (get(duom, k).gal >= balas) {
+     for (const auto& laik : duom)
+     {
+         if (laik.gal < balas) {
+             nuskr_failas << laik.vardas << std::setw(20) << laik.pavarde << std::setw(20) << laik.gal << endl;
+         }
+     }
+   
 
-            galvoc_failas << get(duom, k).vardas << std::setw(20) << get(duom, k).pavarde << std::setw(20) << get(duom, k).gal << endl;
-        }
-    }
-    duom.clear();
-    galvociai.clear();
-    nuskriaustukai.clear();
+     end = std::chrono::high_resolution_clock::now();
+     diff = end - start;
+     //cout << "Surūšiuotų studentų išvedimas į failą - nuskriaustukai:  " << diff.count() << endl;
 
-    end = std::chrono::high_resolution_clock::now();
-    diff = end - start;
-    //cout << "Surūšiuotų studentų išvedimas į failą - galvočiai:  " << diff.count() << endl;
-    */
-    //---------------------------------------VECTOR-----------------------------------------
+
+
+     start = std::chrono::high_resolution_clock::now();
+
+     pavad2 = "galvociai_" + std::to_string(kiek) + ".txt";
+     std::ofstream galvoc_failas(pavad2);
+
+
+     for (const auto& laik : duom)
+     {
+         if (laik.gal >= balas) {
+             galvoc_failas << laik.vardas << std::setw(20) << laik.pavarde << std::setw(20) << laik.gal << endl;
+         }
+     }
+
+     
+     using std::remove;
+     using std::rename;
+     string pavadinimas = "studentai_" + std::to_string(kiek) + ".txt";
+     //remove(pavadinimas);
+    
+
+     duom.clear();
+     galvociai.clear();
+     nuskriaustukai.clear();
+
+     end = std::chrono::high_resolution_clock::now();
+     diff = end - start;
+     //cout << "Surūšiuotų studentų išvedimas į failą - galvočiai:  " << diff.count() << endl;
+     
+     //---------------------------------------VECTOR-----------------------------------------
     failo_skaitymas(duomvec, kiek);
 
     start = std::chrono::high_resolution_clock::now();
@@ -141,8 +150,24 @@ int main()
 studentas get(list<studentas> lst, int d) {
     list<studentas>::iterator itr = lst.begin();
     for (int i = 0; i < d; i++) ++itr;
+
     return *itr;
-} 
+}
+
+
+template<class C>
+void antra_strategija(C & studentai, C & v, double& balas) {
+    for (auto it = studentai.begin(); it != studentai.end();) {
+        if (it->gal < balas){
+            v.push_back(*it);
+            studentai.erase(it++);
+        }
+        else { it++; }
+    }
+
+}
+ 
+
 
 /*int random_generatorius()
 {
