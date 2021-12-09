@@ -1,3 +1,4 @@
+## Naudojimosi CmakeList instrukcija:
 ### Building
 Standart build using cmake.
 On windows with nmake:
