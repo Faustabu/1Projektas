@@ -1,4 +1,8 @@
-## Naudojimosi CmakeList instrukcija:
+# v1.0
+ 
+
+
+### Naudojimosi CmakeList instrukcija:
 ### Building
 Standart build using cmake.
 On windows with nmake:
