@@ -22,6 +22,7 @@ using std::vector;
 using std::list;
 using std::deque;
 
+
 struct studentas {
     string vardas, pavarde;
     vector<float> paz = {};
@@ -37,4 +38,5 @@ studentas get(list<studentas> lst, int d);
 void failo_skaitymas(list<studentas>& kint, int kiek);
 void failo_skaitymas(deque<studentas>& kint, int kiek);
 void failo_skaitymas(vector<studentas>& kint, int kiek);
+
 #endif
