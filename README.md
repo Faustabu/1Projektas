@@ -3,6 +3,8 @@
  * Papildžiau programą antra strategija: nuskriaustukus įkeliu į naująjį "nuskriaustukų" konteinerį ir ištrintu iš bendro studentai konteinerio.
  1000 ir 10000 -su failais kur visi pazymiai
  kiti failai imti be pazymiu, tik su galutiniu, nes kitaip nuskaitant neuzteko atminties.
+ 
+ 
 |studentu skaiciai|1 000|10 000|100 000|1 000 000| 10 000 000|
 |--------------|-----------|---------|----------|----------|-----------|
 |nuskaitymas su list| 0.040967 |4.093822 | 0.034434 | 0.312733 | 3.035935 |
