@@ -167,14 +167,17 @@ studentas get(list<studentas> lst, int d) {
 
 
 template<class C>
-void antra_strategija(C & studentai, C & v, double& balas) {
-    for (auto it = studentai.begin(); it != studentai.end();) {
-        if (it->gal < balas){
-            v.push_back(*it);
-           it = studentai.erase(it);
+void antra_strategija(C& studentai, C& v, double& balas) {
+
+    using std::remove_if;
+    studentai.erase(remove_if(studentai.begin(), studentai.end(), [balas, &v](studentas s) {
+        if (s.gal < balas) {
+            v.push_back(s);
+            return true;
         }
-        else { it++; }
-    }
+        else { return false; }
+        }), studentai.end());
+    
 
 }
 
@@ -208,10 +211,16 @@ void failo_skaitymas(list<studentas>& kint, int kiek) {
         getline(skaitymas >> std::ws, buff);
         while (stud < kiek)
         {
-            //kint.resize(kint.size() + 1);
+            kint.resize(kint.size() + 1);
             studentas student;
             skaitymas >> student.vardas;
             skaitymas >> student.pavarde;
+            student.paz.resize(kiek);
+
+            for (int i = 0; i < kiek; i++)
+            {
+                skaitymas >> student.paz[i];
+            }
             skaitymas >> student.gal;
             kint.push_back(student);
             stud += 1;
@@ -239,6 +248,12 @@ void failo_skaitymas(vector<studentas>& kint, int kiek) {
 
             skaitymas >> kint.at(stud).vardas;
             skaitymas >> kint.at(stud).pavarde;
+             kint.at(stud).paz.resize(kiek);
+
+            for (int i = 0; i < kiek; i++)
+            {
+                skaitymas >> kint.at(stud).paz[i];
+            }
             skaitymas >> kint.at(stud).gal;
             stud += 1;
         }
@@ -266,6 +281,12 @@ void failo_skaitymas(deque<studentas>& kint, int kiek) {
 
             skaitymas >> kint.at(stud).vardas;
             skaitymas >> kint.at(stud).pavarde;
+            kint.at(stud).paz.resize(kiek);
+
+            for (int i = 0; i < kiek; i++)
+            {
+                skaitymas >> kint.at(stud).paz[i];
+            }
             skaitymas >> kint.at(stud).gal;
             stud += 1;
         }
