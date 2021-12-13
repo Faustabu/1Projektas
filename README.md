@@ -1,7 +1,7 @@
 # v1.0
  * Pima strategjia : studentai konteinerio (vector, list ir deque tipų) skaidymas (rūšiavimas) į du naujus to paties tipo konteinerius: "nuskriaustukų" ir "galvočių". 
  * Papildžiau programą antra strategija: nuskriaustukus įkeliu į naująjį "nuskriaustukų" konteinerį ir ištrintu iš bendro studentai konteinerio.
- 1000 ir 10000 -su failais kur visi pazymiai
+ * 1000 ir 10000 -su failais kur visi pazymiai
  kiti failai imti be pazymiu, tik su galutiniu, nes kitaip nuskaitant neuzteko atminties.
  
  
